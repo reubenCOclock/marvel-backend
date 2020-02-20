@@ -124,6 +124,4 @@ app.post("/searchCharacterByName", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT, () => {
-  console.log("the server is listening");
-});
+app.listen(process.env.PORT);
