@@ -1,5 +1,5 @@
 require("dotenv").config();
-
+const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
 const expressFormidable = require("express-formidable");
@@ -10,6 +10,10 @@ const cryptoJS = require("crypto-js");
 app.use(expressFormidable());
 
 app.use(cors());
+
+mongoose.connect(process.ENV.MONGODB_URI, {
+  useNewUrlParser: true
+});
 
 app.post("/characters", async (req, res) => {
   try {
